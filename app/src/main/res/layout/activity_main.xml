@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <Button
-        style="@style/ButtonStyle"
         android:id="@+id/cardTypeBtn"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_marginTop="16dp"
-        android:text="Fragments"
-        android:layout_height="wrap_content" />
+        android:text="Fragments" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:overScrollMode="never"
-        android:clipChildren="false"
+        android:layout_height="330dp"
+        android:layout_gravity="bottom"
         android:clipToPadding="false"
-        android:layout_marginBottom="40dp"
+        android:overScrollMode="never"
+        android:paddingBottom="30dp"
+        android:paddingEnd="@dimen/card_padding"
         android:paddingLeft="@dimen/card_padding"
         android:paddingRight="@dimen/card_padding"
-        android:paddingStart="@dimen/card_padding"
-        android:paddingEnd="@dimen/card_padding"
-        android:layout_height="300dp"
-        android:layout_gravity="bottom" />
+        android:paddingStart="@dimen/card_padding" />
 
 </android.support.design.widget.CoordinatorLayout>
