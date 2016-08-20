@@ -59,7 +59,7 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
         CardView nextCard = mAdapter.getCardViewAt(nextPosition);
 
         // We might be scrolling fast enough so that the next (or previous) card
-        // was already destroyed
+        // was already destroyed or a fragment might not have been created yet
         if (nextCard != null) {
             nextCard.setCardElevation((baseElevation + baseElevation
                     * (CardAdapter.MAX_ELEVATION_FACTOR - 1) * (realOffset)));
