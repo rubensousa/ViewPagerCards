@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardFragmentAdapter extends FragmentStatePagerAdapter implements CardAdapter {
+public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implements CardAdapter {
 
     private List<CardFragment> mFragments;
     private float mBaseElevation;
 
-    public CardFragmentAdapter(FragmentManager fm, float baseElevation) {
+    public CardFragmentPagerAdapter(FragmentManager fm, float baseElevation) {
         super(fm);
         mFragments = new ArrayList<>();
         mBaseElevation = baseElevation;
