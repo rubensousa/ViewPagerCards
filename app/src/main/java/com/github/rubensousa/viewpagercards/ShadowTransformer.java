@@ -2,7 +2,6 @@ package com.github.rubensousa.viewpagercards;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 
 
