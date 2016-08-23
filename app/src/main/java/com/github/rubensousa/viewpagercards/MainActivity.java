@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        CompoundButton.OnCheckedChangeListener {
 
     private Button mButton;
     private ViewPager mViewPager;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mButton = (Button) findViewById(R.id.cardTypeBtn);
+        ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
         mButton.setOnClickListener(this);
 
         mCardAdapter = new CardPagerAdapter();
@@ -56,5 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        mCardShadowTransformer.enableScaling(b);
+        mFragmentCardShadowTransformer.enableScaling(b);
     }
 }
