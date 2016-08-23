@@ -14,7 +14,7 @@ There's support included for Fragments and normal Views. Check the CardPagerAdap
 <img src="https://rubensousa.github.io/img/duolingo_viewpager.gif" width=300></img> <img src="https://rubensousa.github.io/img/viewpager_result.gif" width=300></img>
 
 
-## Implementation examples
+**What you could do with this:**
 
 1. Showcasing premium features
 2. An app intro
