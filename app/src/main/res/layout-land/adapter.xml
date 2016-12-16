@@ -20,17 +20,17 @@
             android:padding="8dp">
 
             <TextView
+                android:id="@+id/titleTextView"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Card title" />
+                android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/contentTextView"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum." />
+                android:layout_marginTop="24dp" />
 
             <Button
                 style="@style/ButtonStyle"

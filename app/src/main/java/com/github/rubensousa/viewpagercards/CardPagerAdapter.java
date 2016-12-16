@@ -5,6 +5,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,18 +13,17 @@ import java.util.List;
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
     private List<CardView> mViews;
-    private List<String> mData;
+    private List<CardItem> mData;
     private float mBaseElevation;
 
     public CardPagerAdapter() {
-
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
+    }
 
-        for (int i = 0; i < 5; i++) {
-            mData.add("");
-            mViews.add(null);
-        }
+    public void addCardItem(CardItem item) {
+        mViews.add(null);
+        mData.add(item);
     }
 
     public float getBaseElevation() {
@@ -50,6 +50,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.adapter, container, false);
         container.addView(view);
+        bind(mData.get(position), view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
 
         if (mBaseElevation == 0) {
@@ -65,6 +66,13 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
         mViews.set(position, null);
+    }
+
+    private void bind(CardItem item, View view) {
+        TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
+        TextView contentTextView = (TextView) view.findViewById(R.id.contentTextView);
+        titleTextView.setText(item.getTitle());
+        contentTextView.setText(item.getText());
     }
 
 }

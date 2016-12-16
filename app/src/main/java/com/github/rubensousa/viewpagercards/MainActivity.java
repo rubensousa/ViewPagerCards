@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton.setOnClickListener(this);
 
         mCardAdapter = new CardPagerAdapter();
+        mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
+        mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_1));
+        mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_1));
+        mCardAdapter.addCardItem(new CardItem(R.string.title_4, R.string.text_1));
         mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
                 dpToPixels(2, this));
 
