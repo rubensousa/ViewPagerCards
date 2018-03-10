@@ -1,13 +1,17 @@
 package com.github.rubensousa.viewpagercards;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+import com.github.rubensousa.viewpagercards.events.OnButtonClickEvent;
+
+import de.greenrobot.event.EventBus;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
@@ -21,11 +25,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ShadowTransformer mFragmentCardShadowTransformer;
 
     private boolean mShowingFragments = false;
+    //
+    private EventBus mEventBus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
+        mEventBus= EventBus.getDefault();
+        mEventBus.getDefault().register(this);
+
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mButton = (Button) findViewById(R.id.cardTypeBtn);
         ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
@@ -70,5 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         mCardShadowTransformer.enableScaling(b);
         mFragmentCardShadowTransformer.enableScaling(b);
+    }
+
+    public void onEvent(OnButtonClickEvent event){
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem()+1);
     }
 }
