@@ -5,10 +5,15 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.github.rubensousa.viewpagercards.events.OnButtonClickEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
@@ -73,6 +78,13 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         TextView contentTextView = (TextView) view.findViewById(R.id.contentTextView);
         titleTextView.setText(item.getTitle());
         contentTextView.setText(item.getText());
+        //
+        item.mButton = (Button) view.findViewById(R.id.button);
+        item.mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(new OnButtonClickEvent("Click to Next Card ····· "));
+            }
+        });
     }
-
 }

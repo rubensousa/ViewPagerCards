@@ -7,11 +7,17 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.github.rubensousa.viewpagercards.events.OnButtonClickEvent;
+
+import de.greenrobot.event.EventBus;
 
 
 public class CardFragment extends Fragment {
 
     private CardView mCardView;
+    private Button mButton;
 
     @Nullable
     @Override
@@ -21,6 +27,14 @@ public class CardFragment extends Fragment {
         mCardView = (CardView) view.findViewById(R.id.cardView);
         mCardView.setMaxCardElevation(mCardView.getCardElevation()
                 * CardAdapter.MAX_ELEVATION_FACTOR);
+
+        mButton = (Button) view.findViewById(R.id.button);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(new OnButtonClickEvent("Click to Next Card ····· "));
+            }
+        });
         return view;
     }
 
