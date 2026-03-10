@@ -1,17 +1,20 @@
 # ViewPagerCards
 ViewPager cards inspired by Duolingo
 
-From my blog post: https://rubensousa.github.io/2016/08/viewpagercards
+From my blog post: https://rubensousa.com/2016/08/20/viewpagercards/
 
 This is just a sample project.
 
+**Note: this project is no longer being maintained**
+
+<img src="https://rubensousa.github.io/img/duolingo_viewpager.gif" width=300></img> <img src="https://rubensousa.github.io/img/viewpager_result.gif" width=300></img>
+
+ 
 There's support included for Fragments and normal Views. Check the CardPagerAdapter and CardFragmentPagerAdapter classes.
 
 **Left** - Duolingo implementation
 
 **Right** - This sample
-
-<img src="https://rubensousa.github.io/img/duolingo_viewpager.gif" width=300></img> <img src="https://rubensousa.github.io/img/viewpager_result.gif" width=300></img>
 
 
 **What you could do with this:**
